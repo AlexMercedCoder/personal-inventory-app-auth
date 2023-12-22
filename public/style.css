@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid green;
+    padding: 3px
+}
+
+#list, #show {
+    border: 2px solid red;
+    min-height: 500px;
+    min-width: 40%;
+}

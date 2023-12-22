@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs", {title: "My Inventory"}) %>
+
+  <body>
+    <h1>Inventory</h1>
+    <a href="/auth/logout"><button>logout</button></a>
+    <main>
+      <div id="list">
+        <article>
+          <a href="/inventory/new"><button>Create Item</button></a>
+        </article>
+        <% inventories.forEach((item) => { %>
+
+        <article class="item" data-id="<%= item._id %>" data-title="<%= item.title %>" data-description="<%= item.description %>"><%= item.title %></article>
+
+        <% }) %>
+      </div>
+      <div id="show"></div>
+    </main>
+  </body>
+</html>

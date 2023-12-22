@@ -10,6 +10,8 @@ const connectMongo = require("connect-mongo"); // middleware for storing session
 
 // Import Routers
 const sampleRouter = require("./controllers/sample");
+const authRouter = require("./controllers/auth")
+const inventoryRouter = require("./controllers/inventory")
 
 // get PORT, DATABASE_URL and SECRET variables from .env
 const { PORT = 3000, DATABASE_URL, SECRET = "default" } = process.env;
@@ -34,10 +36,16 @@ app.use(
 
 // Register Routes
 app.use("/samples", sampleRouter);
+app.use("/auth", authRouter)
+app.use("/inventory", inventoryRouter)
 
 // main route for "/" (all other routes should be handled by routers)
 app.get("/", (req, res) => {
-  res.send("Server is Working");
+
+  const signedUp = req.query.signedUp ? true : false
+  const failedLogin = req.query.failedLogin ? true : false
+
+  res.render("index.ejs", {signedUp, failedLogin})
 });
 
 // turn on server

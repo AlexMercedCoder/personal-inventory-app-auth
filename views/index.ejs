@@ -3,8 +3,43 @@
   <%- include("./partials/head.ejs", {title: "Main Page"}) %>
 
   <body>
-    <h1>Main Page or "/"</h1>
+    <h1>My Inventory App</h1>
 
-    <a href="/sample"><button>Sample Page</button></a>
+    <h2>Sign Up</h2>
+    <form action="/auth/signup" method="post">
+      <label
+        >Username<input type="text" name="username" placeholder="your username"
+      /></label>
+      <label
+        >Password<input
+          type="password"
+          name="password"
+          placeholder="your password"
+      /></label>
+      <button>Sign Up</button>
+    </form>
+    <h2>Login</h2>
+    <form action="auth/login" method="post">
+      <label
+        >Username<input type="text" name="username" placeholder="your username"
+      /></label>
+      <label
+        >Password<input
+          type="password"
+          name="password"
+          placeholder="your password"
+      /></label>
+      <button>Login</button>
+    </form>
+
+    <script>
+      <% if(signedUp){ %>
+        alert("signed up successfully")
+      <% } %>
+
+      <% if(failedLogin){ %>
+        alert("failed to login or signup")
+        <% } %>
+    </script>
   </body>
 </html>

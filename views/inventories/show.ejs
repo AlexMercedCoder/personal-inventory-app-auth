@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs", {title: "Samples Show Page"}) %>
+
+  <body>
+    <h1>Samples Show Page - views/samples/show.ejs</h1>
+
+    <h2>prop1: <%= sample.prop1 %></h2>
+    <h2>prop2: <%= sample.prop2 %></h2>
+
+    <a href="/samples/<%= sample._id %>/edit"><button>Edit</button></a>
+
+    <form action="/samples/<%= sample._id %>?_method=DELETE" method="post">
+      <button>delete</button>
+    </form>
+
+    <a href="/sample"><button>Sample Page</button></a>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs", {title: "Inventory Create Page"}) %>
+
+  <body>
+    <h1>Update an Inventory Item</h1>
+
+    <form action="/inventory/<%= inventory._id %>?_method=PUT" method="post">
+      <label
+        >title:<input type="text" name="title" value="<%= inventory.title %>"
+      /></label>
+      <label
+        >description:<input
+          type="text"
+          name="description"
+          value="<%= inventory.description %>"
+      /></label>
+      <button>Submit</button>
+    </form>
+  </body>
+</html>
