@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head.ejs", {title: "Samples Index Page"}) %>
+
+  <body>
+    <h1>Samples Index Page - views/samples/index.ejs</h1>
+
+    <a href="/samples/new"><button>create new sample</button></a>
+
+    <% samples.forEach((sample) => { %>
+
+    <a href="/samples/<%= sample._id %>"> <h3><%= sample._id %></h3> </a>
+
+    <% }) %>
+
+    <a href="/sample"><button>Sample Page</button></a>
+  </body>
+</html>
